@@ -1,0 +1,21 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="grid-container">
+  <div class="grid-x grid-padding-x">
+    <div class="field  small-12 medium-offset-4 medium-4 cell">      
+        <h2>Registro</h2>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.submit "Continuar", class:"button button medium-12 small-12 " %>
+        <%= render "devise/shared/links" %>
+    </div>      
+  </div>      
+</div>
+<% end %>

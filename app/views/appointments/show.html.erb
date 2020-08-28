@@ -1,0 +1,24 @@
+<div class=" small-12 medium-offset-1 medium-10 ">     
+  <p id="notice"><%= notice %></p>
+  <table class="unstriped">
+    <thead>
+      <tr>
+        <th>
+          <div class=" small-12 medium-9 " ><h2><%=  @appointment.date_time_human %></h2> </div>
+          <div class=" small-12 medium-3 " > 
+              <%= render 'appointments/check_control', model: @appointment %>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Aasignado a <strong><%= @appointment.user_id %></strong></td></tr>
+      <tr><td>Cliente <strong><%= @appointment.customer_id %></strong></td></tr>
+      <tr><td><strong><%= @appointment.product_id %></strong>, duracion <strong><%= @appointment.duration %></strong> mins aprox.</td></tr>
+      <tr><td><%= render '/admin_controls', model: @appointment %></td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+

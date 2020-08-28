@@ -1,0 +1,14 @@
+<% locals ||= {} %>
+<% locals[:checked_text] ||= 'Completada' %>
+<% locals[:unnchecked_text] ||= 'Completar' %>
+<% locals[:size]  ||= '' %>
+<% locals[:col_nbr_width]  ||= 2 %>
+<% if model.status == '1'  %>
+    <%= link_to appointment_url(model, appointment: { id: model, status: 0 }  ), method: 'patch', class:"button  expanded success #{locals[:size]}" do %>
+        <span> <%= locals[:checked_text] %> <i style='margin-left:15px;' class='fi-check large' ></i></span>
+    <% end %> 
+<% else %>
+    <%= link_to appointment_url(model, appointment: { id: model, status: 1 }  ), method: 'patch', class:"button expanded secondary #{locals[:size]} " do %>
+    <span> <%= locals[:unnchecked_text] %> </span>
+    <% end %> 
+<% end %>

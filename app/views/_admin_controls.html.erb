@@ -1,0 +1,10 @@
+<% locals  ||= {} %>
+<% locals[:size]  ||= '' %>
+<% locals[:col_nbr_width]  ||= 2 %>
+<% if  action_name == "show" || action_name ==  "index"  %>
+    <%= link_to 'Modificar', edit_polymorphic_path(model), class: "button #{locals[:size]} small-12 medium-#{locals[:col_nbr_width]} ",  color:"white" %> 
+    <%= link_to 'Eliminar', model, :method => :delete, data: {:confirm => "Estas seguro?" }, class: "button  #{locals[:size]} alert small-12 medium-#{locals[:col_nbr_width]} " %>
+<% end %>
+<% unless  action_name == "index" %>
+    <%= link_to 'Volver', root_path , class: "button secondary  #{locals[:size]} medium-#{locals[:col_nbr_width]} " %>
+<% end %>

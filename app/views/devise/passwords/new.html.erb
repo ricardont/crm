@@ -1,0 +1,16 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<div class="grid-container">
+  <div class="grid-x grid-padding-x">
+    <div class="field  small-12 medium-offset-4 medium-4 cell">    
+      <h2>Cambio de contraseña</h2>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.submit "Enviar", class:"button expanded small " %>
+      <%= render "devise/shared/links" %>
+    </div>      
+  </div>      
+</div>          
+<% end %>
+
+

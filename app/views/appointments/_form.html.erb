@@ -1,0 +1,34 @@
+<%= form_with(model: appointment, local: true) do |form| %>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+      <div class=" small-12 medium-offset-3 medium-6 " >        
+        <h3> <%= locals[:hdr]  or '' %> </h3>
+        <% if appointment.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+              <ul>
+              <% appointment.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div id="datetimepicker" >
+            <label for="date_time_human"> Fecha</label> 
+            <%= form.text_field :date_time_human, id: :date_time_human, name: "appointment[date_time]", autocomplete: :off %>
+            <label for="">Servicio</label>
+          </div>
+          <%= form.number_field :product_id %>
+          <label for="">Duracion (Mins)</label>
+          <%= form.number_field :duration , step: 15, value:30, min:15 %>
+          <label for="">Cliente</label>
+          <%= form.number_field :customer_id %>
+          <label id="statusBttn" for="statusSwitch" class="button expanded "  >
+            Finalizar 
+          </label>
+          <%= form.check_box :status,  id:"statusSwitch", hidden:"true" %>
+          <%= form.submit  "Guardar", class: "button expanded " %>
+      </div>
+    </div>  
+  </div>
+<% end %>

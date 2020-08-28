@@ -1,0 +1,111 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require fullcalendar
+ /*= require foundation
+
+@import "foundation_and_overrides";
+*/
+@import "foundation_and_overrides";
+@import 'foundation-icons';
+.top-bar{
+    padding:0px;
+}
+.navbar-icon{
+    font-size: 30px ;
+    
+}
+.dropdown-icon{
+    font-size: 20px ;
+    float:left;
+}
+.dropdown-item{
+    vertical-align: middle;
+}
+.dropdown-item > a > span {
+    color:blue;
+}
+#main-icon-bar > li > a:link {
+    background-color: none;
+}
+#main-icon-bar > li > a:hover {
+    background-color: white;
+}
+#main-icon-bar > li > a:active {
+    color: white;
+  }
+#main-icon-bar > li > a:visited {
+    color:white;
+}
+.border-left{
+    border-right: solid 1px white;
+}
+#main-icon-bar > li > a, #main-icon-bar > li > i,{
+    color:blue;
+}
+
+a:visited {
+    color:white;
+    text-decoration: none;
+}
+//forms
+a:hover {
+    background-color: transparent;
+}
+.success{
+    color:white ;
+}
+form{
+    width:100%;
+}
+
+.button, input{
+    border-radius: 5px !important;
+}
+.inverted{
+    background-color:white;
+    color:#14679e !important;
+    border: solid 1px #14679e !important;
+}
+.inverted:hover{
+    background-color:#14679e;
+    color:white !important;
+    border: solid 1px white !important;
+}
+.warning-inverted{
+    background-color:white;
+    color:orange !important;
+    border: solid 1px orange !important;
+}
+.warning-inverted:hover{
+    background-color:orange;
+    color:white !important;
+    border:solid 1px white !important;
+}
+.secondary-inverted{
+    background-color:white;
+    color:gray;
+    border: solid 1px gray !important;
+}
+.secondary-inverted:hover{
+    background-color:gray;
+    color:white;
+    border:solid 1px white;
+}
+.display-none{
+    display:none;
+}
+
+
+
