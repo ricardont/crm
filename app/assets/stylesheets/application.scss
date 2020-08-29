@@ -19,52 +19,33 @@
 */
 @import "foundation_and_overrides";
 @import 'foundation-icons';
-.top-bar{
-    padding:0px;
-}
+
 .navbar-icon{
-    font-size: 30px ;
-    
+    font-size:1.8em;
+    color:white;
+}
+.top-bar  .top-bar-left ul li:hover > a {
+    background:#636363;
+
+}
+.topbar-item a:hover, .topbar-item a:visited{
+    color:white;
+}
+.topbar-item{
+    border-right: solid 1px#7a7a7a;
 }
 .dropdown-icon{
-    font-size: 20px ;
-    float:left;
+    font-size:1.7em;
 }
-.dropdown-item{
-    vertical-align: middle;
-}
-.dropdown-item > a > span {
-    color:blue;
-}
-#main-icon-bar > li > a:link {
-    background-color: none;
-}
-#main-icon-bar > li > a:hover {
-    background-color: white;
-}
-#main-icon-bar > li > a:active {
-    color: white;
-  }
-#main-icon-bar > li > a:visited {
-    color:white;
-}
-.border-left{
-    border-right: solid 1px white;
-}
-#main-icon-bar > li > a, #main-icon-bar > li > i,{
-    color:blue;
-}
-
-a:visited {
-    color:white;
-    text-decoration: none;
-}
-//forms
-a:hover {
-    background-color: transparent;
+.dropdown-item a span{
+    font-size:0.9em;
+    color:#636363
 }
 .success{
     color:white ;
+}
+.dropdown-item.border-top{
+    border-top:solid 1px #8a8a8a;
 }
 form{
     width:100%;

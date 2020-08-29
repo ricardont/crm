@@ -1,52 +1,52 @@
 <div class="top-bar">
     <div class="top-bar-left ">
         <ul class="menu icons icon-top dropdown" id="main-icon-bar"  data-dropdown-menu >
-            <li class="border-left">
-                <a><i class="fi-widget large navbar-icon"></i></a>
+            <li class="topbar-item">
+                <a><i class="fi-list-bullet large navbar-icon"></i></a>
                 <ul class="menu vertical">
                     <li>
                         <div class="dropdown-item">
-                            <%= link_to customers_path do %>
-                                <span><i class="fi-address-book large dropdown-icon"></i></span><span>Empleados</span>
+                            <%= link_to customers_path , class: "dropdown-link" do %>
+                                <span><i class="fi-address-book large dropdown-icon"></i></span><span>Clientes</span> 
                             <% end %>    
                         </div>            
                     </li>
                     <li>
-                        <div class="dropdown-item">
-                            <%= link_to customers_path do %>
-                                <span><i class="fi-torsos-male-female large dropdown-icon"></i></span> <span>Empleados</span>
+                        <div class="dropdown-item border-top">
+                            <%= link_to customers_path , class: "dropdown-link" do %>
+                                <span><i class="fi-torsos-male-female large dropdown-icon"></i></span><span>Empleados</span>
                             <% end %>
                         </div>
                     </li>
                     <li>
-                        <div class="dropdown-item">
-                            <%= link_to customers_path do %>
-                                <span><i class="fi-pricetag-multiple large dropdown-icon"></i></span> <span>Servicios</span>
+                        <div class="dropdown-item border-top">
+                            <%= link_to customers_path , class: "dropdown-link" do %>
+                                <span><i class="fi-pricetag-multiple large dropdown-icon"></i></span><span> Servicios</span>
                             <% end %>
                         </div>
                     </li>
                     <li>
-                        <div class="dropdown-item">
-                            <%= link_to locations_path do %>
-                                <span><i class="fi-home large dropdown-icon"></i></span> <span>Compañia</span>
+                        <div class="dropdown-item border-top">
+                            <%= link_to locations_path , class: "dropdown-link" do %>
+                                <span><i class="fi-home large dropdown-icon"></i></span><span>Compañia</span>
                             <% end %>
                         </div>
                     </li>
                     <li>                
-                        <div class="dropdown-item">
-                            <%= link_to user_registration_path do %>
+                        <div class="dropdown-item border-top">
+                            <%= link_to user_registration_path , class: "dropdown-link" do %>
                                 <span><i class="fi-arrow-right large dropdown-icon"></i></span><span>Salir</span>   
                             <% end %>  
                         </div>
                     </li>
                 </ul>
             </li>
-            <li >
+            <li class="topbar-item" >
                 <%= link_to root_path do %>
                     <i class="fi-calendar large navbar-icon"></i>
                 <% end %>                
             </li>
-            <li>
+            <li class="topbar-item">
                 <%= link_to new_appointment_path do %>                  
                     <i class="fi-bookmark large navbar-icon"></i>      
                 <% end %>                
