@@ -22,7 +22,18 @@
           <label for="">Duracion (Mins)</label>
           <%= form.number_field :duration , step: 15, value:30, min:15 %>
           <label for="">Cliente</label>
-          <%= form.number_field :customer_id %>
+
+          
+          <div class="grid-container">
+            <div class="grid-x grid-padding-x">
+              <%= form.number_field :customer_id , class:"small-12 medium-11" %>
+              <div class=" small-12  medium-1 " >  
+              <%= link_to '...', new_customer_path , class: "button inverted  small expanded" %>
+              </div>
+             </div>
+            </div>
+            
+            
           <label id="statusBttn" for="statusSwitch" class="button expanded "  >
             Finalizar 
           </label>
