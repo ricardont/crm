@@ -1,41 +1,26 @@
-<div class="grid-container">
-<div class="grid-x grid-padding-x">
 <%= form_with(model: customer, local: true) do |form| %>
-  <% if customer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
-
-      <ul>
-      <% customer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="grid-container">
+  <div class="grid-x grid-padding-x">
+    <div class=" small-12 medium-offset-3 medium-6 " >     
+        <% if customer.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+            <ul>
+            <% customer.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+        <% end %>
+          <%= form.label :name %>
+          <%= form.text_field :name %>
+          <%= form.label :phone %>
+          <%= form.text_field :phone %>
+          <%= form.label :email %>
+          <%= form.text_field :email %>
+          <%= form.label :user_id %>
+          <%= form.number_field :user_id %>
+          <%= form.submit  "Guardar", class: "button expanded "  %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-</div>  
+  </div>  
 </div>
+<% end %>

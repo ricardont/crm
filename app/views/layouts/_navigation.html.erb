@@ -34,7 +34,7 @@
                     </li>
                     <li>                
                         <div class="dropdown-item border-top">
-                            <%= link_to user_registration_path , class: "dropdown-link" do %>
+                            <%= link_to destroy_user_session_path , method:"delete", class: "dropdown-link" do %>
                                 <span><i class="fi-arrow-right large dropdown-icon"></i></span><span>Salir</span>   
                             <% end %>  
                         </div>
