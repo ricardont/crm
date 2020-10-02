@@ -1,6 +1,6 @@
 <%= form_with(model: appointment, local: true) do |form| %>
   <div class="grid-container">
-    <div class="grid-x grid-padding-x">
+    <div class="grid-x grid-padding-1">
       <div class=" small-12 medium-offset-3 medium-6 " >        
         <h3> <%= locals[:hdr]  or '' %> </h3>
         <% if appointment.errors.any? %>
@@ -13,27 +13,37 @@
               </ul>
             </div>
           <% end %>
-          <div id="datetimepicker" >
-            <label for="date_time_human"> Fecha</label> 
-            <%= form.text_field :date_time_human, id: :date_time_human, name: "appointment[date_time]", autocomplete: :off %>
-            <label for="">Servicio</label>
-          </div>
-          <%= form.number_field :product_id %>
-          <label for="">Duracion (Mins)</label>
-          <%= form.number_field :duration , step: 15, value:30, min:15 %>
-          <label for="">Cliente</label>
+          <label for="">Servicio</label>   
+          <div class="input-group" >
+            <%= form.number_field :product_id, class:"input-group-field"  %>  
+            <div class="input-group-button " >  
+              <%= link_to new_customer_path , class: "button standard", style:"padding-top:10px;" do %> 
+                  <i class="fi-plus large "></i>
+              <% end %>
+            </div>  
+          </div>   
 
-          
-          <div class="grid-container">
-            <div class="grid-x grid-padding-x">
-              <%= form.number_field :customer_id , class:"small-12 medium-11" %>
-              <div class=" small-12  medium-1 " >  
-              <%= link_to '...', new_customer_path , class: "button inverted  small expanded" %>
-              </div>
-             </div>
+          <label for="">Cliente</label>          
+          <div class="input-group" >
+            <%= form.number_field :customer_id, class:"input-group-field"  %>  
+            <div class="input-group-button " >  
+              <%= link_to new_customer_path , class: "button standard", style:"padding-top:10px;" do %> 
+                  <i class="fi-plus large "></i>
+              <% end %>
+            </div>  
+          </div>
+          <div class="grid-x grid-padding-1">
+            <div class="cell medium-8 small-12" >
+              <div id="datetimepicker" >  
+                <label for="date_time_human"> Fecha</label>   
+                <%= form.text_field :date_time_human, id: :date_time_human, name: "appointment[date_time]", autocomplete: :off  %>              
+              </div>  
             </div>
-            
-            
+            <div class="cell medium-4 small-12 " >
+              <label for="">Duracion (Mins)</label>
+              <%= form.number_field :duration , step: 15, value:30, min:15 %> 
+            </div>
+          </div>
           <label id="statusBttn" for="statusSwitch" class="button expanded "  >
             Finalizar 
           </label>
