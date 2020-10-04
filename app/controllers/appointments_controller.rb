@@ -1,15 +1,16 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :set_customers, only: [ :edit, :update ]
   before_action :authenticate_user!
   def index
-    @appointments = Appointment.all
+    @appointments = current_user.appointments.all
   end
   def calendar
   end
   def show
   end
   def new
-    @appointment = Appointment.new
+    @appointment = current_user.appointments.new(appointment_params)
   end
   def edit
   end
@@ -28,7 +29,7 @@ class AppointmentsController < ApplicationController
   def update
     respond_to do |format|
       if @appointment.update(appointment_params)
-        format.html { redirect_to @appointment, notice: 'Cita actualizada.' }
+        format.html { redirect_to @appointment, notice: ' Cita actualizada.' }
         format.json { render :show, status: :ok, location: @appointment }
       else
         format.html { render :edit }
@@ -45,7 +46,11 @@ class AppointmentsController < ApplicationController
   end
   private
     def set_appointment
-      @appointment = Appointment.find(params[:id])
+      @appointment = current_user.appointments.find(params[:id])
+      @customer    = current_user.customers.last
+    end
+    def set_customers
+      @customers = current_user.customers.order(:name)
     end
     def appointment_params
       params.require(:appointment).permit(:date_time, :duration, :user_id, :customer_id, :location_id, :product_id, :status)
