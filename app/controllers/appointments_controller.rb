@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
-  before_action :set_customers, only: [ :edit, :update ]
+  before_action :set_customers, only: [:new, :edit, :update ]
   before_action :authenticate_user!
   def index
     @appointments = current_user.appointments.all
@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
   def show
   end
   def new
-    @appointment = current_user.appointments.new(appointment_params)
+    @appointment =Appointment.new
   end
   def edit
   end
@@ -18,7 +18,7 @@ class AppointmentsController < ApplicationController
     @appointment = current_user.appointments.new(appointment_params)
     respond_to do |format|
       if @appointment.save
-        format.html { redirect_to @appointment, notice: 'Cita creada.' }
+        format.html { redirect_to appointments_path, notice: 'Cita creada.' }
         format.json { render :show, status: :created, location: @appointment }
       else
         format.html { render :new }
@@ -29,7 +29,7 @@ class AppointmentsController < ApplicationController
   def update
     respond_to do |format|
       if @appointment.update(appointment_params)
-        format.html { redirect_to @appointment, notice: ' Cita actualizada.' }
+        format.html { redirect_to appointments_path, notice: ' Cita actualizada.' }
         format.json { render :show, status: :ok, location: @appointment }
       else
         format.html { render :edit }
