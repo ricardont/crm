@@ -1,6 +1,6 @@
 <%= form_with(model: appointment, local: true) do |form| %>
   <div class="grid-container">
-    <div class="grid-x grid-padding-x">
+    <div class="grid-x grid-padding-1">
       <div class=" small-12 medium-offset-3 medium-6 " >        
         <h3> <%= locals[:hdr]  or '' %> </h3>
         <% if appointment.errors.any? %>
@@ -13,19 +13,45 @@
               </ul>
             </div>
           <% end %>
-          <div id="datetimepicker" >
-            <label for="date_time_human"> Fecha</label> 
-            <%= form.text_field :date_time_human, id: :date_time_human, name: "appointment[date_time]", autocomplete: :off %>
-            <label for="">Servicio</label>
+          <label for="">Servicio</label>   
+          <%= form.hidden_field :location_id, class:"input-group-field", value:1  %>  
+          <div class="input-group" >
+            <%= form.number_field :product_id, class:"input-group-field"  %>  
+            <div class="input-group-button " >  
+              <%= link_to new_customer_path , class: "button standard", style:"padding-top:10px;" do %> 
+                  <i class="fi-plus large "></i>
+              <% end %>
+            </div>  
+          </div>   
+          <label for="">Cliente</label>          
+          <div class="input-group" >        
+            <%= form.collection_select(:customer_id, @customers, :id, :name,  class:"input-group-field  ") %>   
+              <%= link_to new_customer_path , class: "button standard", style:"padding-top:10px;" do %> 
+                  <i class="fi-plus large "></i>
+              <% end %>
           </div>
-          <%= form.number_field :product_id %>
+          <div class="medium-12 small-12" >
+            <div id="datetimepicker" >  
+              <label for="date_time_human"> Fecha</label>   
+              <%= form.text_field :date_time_human, id: :date_time_human, name: "appointment[date_time]", autocomplete: :off  %>              
+            </div>  
+          </div>
           <label for="">Duracion (Mins)</label>
-          <%= form.number_field :duration , step: 15, value:30, min:15 %>
-          <label for="">Cliente</label>
-          <%= form.number_field :customer_id %>
+          <div class="grid-x grid-padding-x">
+            <div class="cell medium-9 small-10" >
+              <div class="slider" data-slider data-start="30" data-initial-start="30" data-end="180" data-step="30" >
+                <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="appointment_duration"></span>
+                <span class="slider-fill" data-slider-fill></span>
+              </div>
+            </div>
+            <div class="cell medium-3 small-2 " >
+              <%= form.number_field :duration , step: 30, value:30, min:30 %> 
+            </div>
+          </div>
           <label id="statusBttn" for="statusSwitch" class="button expanded "  >
             Finalizar 
           </label>
+          <%= form.check_box :status,  id:"statusSwitch", hidden:"true" %>
           <%= form.check_box :status,  id:"statusSwitch", hidden:"true" %>
           <%= form.submit  "Guardar", class: "button expanded " %>
       </div>
